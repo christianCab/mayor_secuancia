@@ -1,0 +1,24 @@
+program PROBLEMA_3_TP9;
+{$codepage utf8}
+var
+    num,resultado:integer;
+
+function digitos(num:integer):integer;
+   begin
+   if(num<10)then
+        digitos:=1
+   else
+        begin
+        write('lei ',num);
+        digitos:=1+digitos(num div 10);
+        end;
+   end;
+
+begin
+    write('Ingrese una secuencia de numeros: ');
+    repeat
+        read(num);
+    until (num<=-1);
+    resultado:=digitos(num);
+    write('Los digitos de : ',num,' son ', resultado);
+end.
