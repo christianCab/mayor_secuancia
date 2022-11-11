@@ -1,24 +1,26 @@
 program PROBLEMA_3_TP9;
 {$codepage utf8}
 var
-    num,resultado:integer;
+    num,mayor,resultado,prueba:integer;
 
-function digitos(num:integer):integer;
+function cant_digitos(num:integer):integer;
    begin
-   if(num<10)then
-        digitos:=1
+   if(num DIV 10 = 0)then
+        cant_digitos:=1
    else
-        begin
-        write('lei ',num);
-        digitos:=1+digitos(num div 10);
-        end;
+        cant_digitos:=1+cant_digitos(num div 10);
    end;
 
 begin
     write('Ingrese una secuencia de numeros: ');
+    mayor :=0;
     repeat
         read(num);
-    until (num<=-1);
-    resultado:=digitos(num);
-    write('Los digitos de : ',num,' son ', resultado);
+        resultado:=cant_digitos(num);
+        prueba:=cant_digitos(mayor);
+        if (resultado>prueba)then
+            mayor:=num;
+    until(num=-1);
+    
+    write('Los digitos de : ',mayor,' son ', prueba);
 end.
